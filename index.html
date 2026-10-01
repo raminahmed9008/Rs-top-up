@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RS Top-Up</title>
+
+  <title>RS TOP-UP | Free Fire Diamond</title>
 
   <style>
     * {
@@ -14,79 +15,115 @@
     }
 
     body {
-      background: #0b1020;
+      background: #080d1c;
       color: white;
       min-height: 100vh;
     }
 
     .container {
-      max-width: 500px;
+      max-width: 520px;
       margin: auto;
-      padding: 25px 18px;
+      padding: 20px 15px;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 25px;
+      padding: 20px 0;
     }
 
-    .header h1 {
-      font-size: 32px;
-      margin-bottom: 8px;
+    .logo {
+      font-size: 34px;
+      font-weight: bold;
     }
 
-    .header p {
-      color: #aaa;
+    .subtitle {
+      color: #aab2c8;
+      margin-top: 8px;
     }
 
     .card {
-      background: #151b2e;
-      border: 1px solid #29324d;
-      border-radius: 15px;
+      background: #131a2e;
+      border: 1px solid #293553;
+      border-radius: 16px;
       padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .card h2 {
       margin-bottom: 18px;
+      font-size: 20px;
     }
 
     label {
       display: block;
-      margin-bottom: 8px;
       font-weight: bold;
+      margin-bottom: 8px;
     }
 
-    input, select {
+    input {
       width: 100%;
-      padding: 13px;
-      border-radius: 8px;
-      border: 1px solid #3a4565;
-      background: #0d1324;
+      padding: 14px;
+      background: #0b1122;
       color: white;
-      margin-bottom: 15px;
+      border: 1px solid #35415f;
+      border-radius: 9px;
+      margin-bottom: 16px;
       outline: none;
+      font-size: 15px;
     }
 
-    .diamonds {
+    .packages {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
 
-    .diamond {
+    .package {
       background: #202943;
-      border: 1px solid #394766;
       color: white;
-      padding: 14px;
-      border-radius: 10px;
+      border: 1px solid #3a4767;
+      border-radius: 12px;
+      padding: 15px 8px;
       cursor: pointer;
-      text-align: center;
+      font-size: 15px;
     }
 
-    .diamond:hover {
+    .package:hover {
       background: #29365a;
+    }
+
+    .package.active {
+      border-color: #18c878;
+      background: #173d32;
+    }
+
+    .diamond {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .price {
+      display: block;
+      margin-top: 6px;
+      color: #70e7ad;
+    }
+
+    .summary {
+      background: #0b1122;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 18px;
+      line-height: 1.8;
+    }
+
+    .summary span {
+      color: #70e7ad;
     }
 
     .btn {
       width: 100%;
-      padding: 14px;
+      padding: 15px;
+      margin-top: 18px;
       border: none;
       border-radius: 10px;
       background: #18a558;
@@ -94,7 +131,6 @@
       font-size: 17px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 8px;
     }
 
     .btn:hover {
@@ -103,16 +139,16 @@
 
     .notice {
       text-align: center;
-      color: #aaa;
-      font-size: 13px;
-      margin-top: 15px;
+      color: #9099ae;
+      font-size: 12px;
+      margin-top: 14px;
     }
 
     footer {
       text-align: center;
-      color: #777;
+      color: #687188;
       font-size: 13px;
-      margin-top: 25px;
+      padding: 20px 0;
     }
   </style>
 </head>
@@ -122,71 +158,153 @@
   <div class="container">
 
     <div class="header">
-      <h1>💎 RS TOP-UP</h1>
-      <p>Free Fire Diamond Top-Up Demo</p>
+      <div class="logo">💎 RS TOP-UP</div>
+      <div class="subtitle">
+        Free Fire Diamond Top-Up
+      </div>
     </div>
 
     <div class="card">
 
+      <h2>🛒 Create Your Order</h2>
+
       <label>Free Fire UID</label>
-      <input type="number" id="uid" placeholder="Enter your UID">
 
-      <label>Select Diamonds</label>
+      <input
+        type="number"
+        id="uid"
+        placeholder="Enter your Free Fire UID"
+      >
 
-      <div class="diamonds">
-        <button class="diamond" onclick="selectDiamond(100)">💎 100 Diamonds</button>
-        <button class="diamond" onclick="selectDiamond(310)">💎 310 Diamonds</button>
-        <button class="diamond" onclick="selectDiamond(520)">💎 520 Diamonds</button>
-        <button class="diamond" onclick="selectDiamond(1060)">💎 1060 Diamonds</button>
+      <label>Select Diamond Package</label>
+
+      <div class="packages">
+
+        <button class="package" onclick="selectPackage(100, 80, this)">
+          <span class="diamond">💎 100</span>
+          <span class="price">৳80</span>
+        </button>
+
+        <button class="package" onclick="selectPackage(310, 220, this)">
+          <span class="diamond">💎 310</span>
+          <span class="price">৳220</span>
+        </button>
+
+        <button class="package" onclick="selectPackage(520, 350, this)">
+          <span class="diamond">💎 520</span>
+          <span class="price">৳350</span>
+        </button>
+
+        <button class="package" onclick="selectPackage(1060, 700, this)">
+          <span class="diamond">💎 1060</span>
+          <span class="price">৳700</span>
+        </button>
+
       </div>
 
-      <br>
+      <div class="summary">
 
-      <label>Selected Package</label>
-      <input type="text" id="selected" placeholder="Select a package" readonly>
+        <div>
+          💎 Diamonds:
+          <span id="summaryDiamond">Not selected</span>
+        </div>
 
-      <button class="btn" onclick="topUp()">TOP-UP NOW</button>
+        <div>
+          💰 Price:
+          <span id="summaryPrice">৳0</span>
+        </div>
+
+        <div>
+          🆔 UID:
+          <span id="summaryUid">Not entered</span>
+        </div>
+
+      </div>
+
+      <button class="btn" onclick="createOrder()">
+        CONTINUE ORDER
+      </button>
 
       <p class="notice">
-        ⚠️ এটি একটি demo website। কোনো বাস্তব diamond/top-up এখানে দেওয়া হয় না।
+        নিরাপত্তার জন্য কোনো Free Fire password বা OTP প্রয়োজন নেই।
       </p>
 
     </div>
 
     <footer>
-      © 2026 RS Top-Up
+      © 2026 RS TOP-UP
     </footer>
 
   </div>
 
+
   <script>
-    function selectDiamond(amount) {
-      document.getElementById("selected").value =
-        amount + " Diamonds";
+
+    let selectedDiamond = 0;
+    let selectedPrice = 0;
+
+    function selectPackage(diamond, price, button) {
+
+      selectedDiamond = diamond;
+      selectedPrice = price;
+
+      document.querySelectorAll(".package").forEach(function(btn) {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      document.getElementById("summaryDiamond").innerText =
+        diamond + " Diamonds";
+
+      document.getElementById("summaryPrice").innerText =
+        "৳" + price;
+
+      updateUID();
     }
 
-    function topUp() {
+
+    document.getElementById("uid").addEventListener("input", function() {
+      updateUID();
+    });
+
+
+    function updateUID() {
+
       const uid = document.getElementById("uid").value;
-      const selected = document.getElementById("selected").value;
+
+      document.getElementById("summaryUid").innerText =
+        uid || "Not entered";
+    }
+
+
+    function createOrder() {
+
+      const uid = document.getElementById("uid").value;
 
       if (uid === "") {
         alert("Please enter your Free Fire UID.");
         return;
       }
 
-      if (selected === "") {
-        alert("Please select a diamond package.");
+      if (selectedDiamond === 0) {
+        alert("Please select a Diamond package.");
         return;
       }
 
+      const orderId =
+        "RS" +
+        Date.now().toString().slice(-8);
+
       alert(
-        "Demo Order\n\nUID: " +
-        uid +
-        "\nPackage: " +
-        selected +
-        "\n\nThis is only a demo website."
+        "Order Created!\\n\\n" +
+        "Order ID: " + orderId +
+        "\\nUID: " + uid +
+        "\\nDiamonds: " + selectedDiamond +
+        "\\nPrice: ৳" + selectedPrice
       );
     }
+
   </script>
 
 </body>
