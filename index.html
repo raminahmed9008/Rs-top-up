@@ -278,32 +278,37 @@
     }
 
 
-    function createOrder() {
+    function createOrder() 
 
-      const uid = document.getElementById("uid").value;
+  const uid = document.getElementById("uid").value;
 
-      if (uid === "") {
-        alert("Please enter your Free Fire UID.");
-        return;
+  if (uid === "") {
+    alert("Please enter your Free Fire UID.");
+    return;
+  }
+
+  if (selectedDiamond === 0) {
+    alert("Please select a Diamond package.");
+    return;
+  }
+
+  const orderId =
+    "RS" + Date.now().toString().slice(-8);
+
+  alert(
+    "✅ ORDER CREATED!\n\n" +
+    "Order ID: " + orderId +
+    "\n\n" +
+    "Free Fire UID: " + uid +
+    "\n" +
+    "Diamonds: " + selectedDiamond +
+    "\n" +
+    "Price: ৳" + selectedPrice +
+    "\n\n" +
+    "Please save your Order ID."
+  );
+
       }
-
-      if (selectedDiamond === 0) {
-        alert("Please select a Diamond package.");
-        return;
-      }
-
-      const orderId =
-        "RS" +
-        Date.now().toString().slice(-8);
-
-      alert(
-        "Order Created!\\n\\n" +
-        "Order ID: " + orderId +
-        "\\nUID: " + uid +
-        "\\nDiamonds: " + selectedDiamond +
-        "\\nPrice: ৳" + selectedPrice
-      );
-    }
 
   </script>
 
